@@ -2,17 +2,23 @@
             xmlns="sap.m" 
             xmlns:mvc="sap.ui.core.mvc"
             displayBlock="true">  <!-- :mvc nos permite agregar un alias -->
-    <App>
-        <pages>
-            <Page title="{i18n>appTitle}">
-                <content>
-                    <Button text="{i18n>showHelloButtonText}" press=".onShowHello"></Button>
-                    <Input value="{/recipient/name}"
-                        description="Hello {/recipient/name}" 
-                        valueLiveUpdate="true"
-                        width="60%"></Input> <!-- Obtiene el valor del objeto recipient, usando el atributo name. valueLiveUpdate="true" actualiza en tiempo real lo que escribamos -->
-                </content>
-            </Page>
-        </pages>
-    </App>
+    <Shell> <!-- Este control reside por encima de todos los elementos de la Aplicacion, deja espacios a los costados en el Desktop. En las otras plataformas no agrega nada. Todo se hace en automatico gracias a las configuraciones del Responsive.-->
+        <App>
+            <pages>
+                <Page title="{i18n>appTitle}"> <!-- Agrego como titulo el que se encuentra en el i18n bajo la variable appTitle -->
+                    <content>
+                        <Panel headerText="{i18n>helloPanel}" class="sapUiResponsiveMargin" width="auto"> <!-- Agrego como header el que se encuentra en el i18n bajo la variable helloPanel -->
+                            <content>
+                                <Button text="{i18n>showHelloButtonText}" press=".onShowHello" class="sapUiSmallMarginEnd"></Button>
+                                <Input value="{/recipient/name}"
+                                    valueLiveUpdate="true"
+                                    width="60%"></Input> <!-- Obtiene el valor del objeto recipient, usando el atributo name. valueLiveUpdate="true" actualiza en tiempo real lo que escribamos -->
+                                <Text text="Hello {/recipient/name}" class="sapUiSmallMargin boldElements sapthemeHighlight-asColor"></Text>
+                            </content>
+                        </Panel>
+                    </content>
+                </Page>
+            </pages>
+        </App>
+    </Shell>
 </mvc:View>
