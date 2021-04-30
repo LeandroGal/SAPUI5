@@ -7,6 +7,7 @@ modules:
   path: invoices-approuter
   requires:
   - name: Invoices_html_repo_runtime
+  - name: dest_Invoices
   parameters:
     disk-quota: 256M
     memory: 256M
@@ -17,6 +18,21 @@ modules:
   - name: Invoices_html_repo_host
     parameters:
       content-target: true
+  build-parameters:
+    build-result: resources
+    requires:
+    - artifacts:
+      - SAPUI5-content.zip
+      name: SAPUI5
+      target-path: resources/
+- name: SAPUI5
+  type: html5
+  path: SAPUI5
+  build-parameters:
+    builder: custom
+    commands:
+    - npm run build
+    supported-platforms: []
 resources:
 - name: Invoices_html_repo_runtime
   type: org.cloudfoundry.managed-service
@@ -28,3 +44,13 @@ resources:
   parameters:
     service: html5-apps-repo
     service-plan: app-host
+- name: dest_Invoices
+  type: org.cloudfoundry.managed-service
+  parameters:
+    service: destination
+    service-plan: lite
+build-parameters:
+  before-all:
+  - builder: custom
+    commands:
+    - npm install

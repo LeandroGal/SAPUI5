@@ -1,0 +1,1 @@
+destinations=[{"name":"Northwind","url":"https://Northwind.dest","proxyHost":"https://127.0.0.1","proxyPort":"8887"}]
