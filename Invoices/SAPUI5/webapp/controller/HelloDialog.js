@@ -16,7 +16,7 @@ sap.ui.define([
             },
 
             exit: function () {
-                delete this._oView;
+                delete this._oView; // borramos la instancia que creamos anteriormente
             },
 
             open: function () {

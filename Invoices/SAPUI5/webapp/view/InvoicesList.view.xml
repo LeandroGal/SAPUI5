@@ -29,7 +29,6 @@
                             numberUnit="{currency>/usd}"
                             numberState="{= ${northwind>ExtendedPrice} > 50 ? 'Success' : 'Error'}">
             </ObjectListItem>
-
         </items>
     </List>
 </mvc:View>

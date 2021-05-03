@@ -11,8 +11,18 @@
       "type": "node",
       "request": "launch",
       "runtimeExecutable": "npm",
+      "args": [
+        "--",
+        "--backendConfig",
+        "[{\"path\":\"/sap\",\"destination\":\"Northwind\"}] "
+      ],
       "windows": {
-        "runtimeExecutable": "npm.cmd"
+        "runtimeExecutable": "npm.cmd",
+        "args": [
+          "--",
+          "--backendConfig",
+          "\"[{\\\"path\\\":\\\"/sap\\\",\\\"destination\\\":\\\"Northwind\\\"}]\" "
+        ]
       },
       "console": "internalConsole",
       "internalConsoleOptions": "openOnSessionStart",
